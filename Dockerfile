@@ -15,9 +15,6 @@ RUN perl -MCPAN -e 'install Net::LDNS'
 RUN perl -MCPAN -e 'install Net::IP::XS'
 RUN perl -MCPAN -e 'install Module::Install'
 
-RUN git clone https://github.com/dotse/zonemaster-engine.git
-RUN git clone https://github.com/dotse/zonemaster-cli.git
-
 RUN perl -MCPAN -e 'install File::ShareDir'
 RUN perl -MCPAN -e 'install File::Slurp'
 RUN perl -MCPAN -e 'install Hash::Merge'
@@ -33,6 +30,9 @@ RUN perl -MCPAN -e 'install Moose'
 RUN perl -MCPAN -e 'install Readonly'
 RUN perl -MCPAN -e 'install IO::Socket::INET6'
 
+
+RUN git clone https://github.com/dotse/zonemaster-engine.git
+RUN git clone https://github.com/dotse/zonemaster-cli.git
 RUN cd /root/zonemaster-engine \
 	&& perl Makefile.PL \
 	&& make \
